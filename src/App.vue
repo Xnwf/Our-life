@@ -1,23 +1,22 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { darkTheme } from 'naive-ui'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <n-config-provider :theme="darkTheme">
+    <header>
+      <div class="wrapper">
+        <nav>
+          <RouterLink to="/index">index</RouterLink>
+          <RouterLink to="/toDo">toDo</RouterLink>
+          <RouterLink to="/plan">plan</RouterLink>
+        </nav>
+      </div>
+    </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+    <RouterView />
+  </n-config-provider>
 </template>
 
 <style scoped>
